@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+//Muito bem, primeira mudanca! By: Rick
 
 #region Comentarios de comandos
 //if (condicao)  //eh sempre uma variavel comparada com a outra
