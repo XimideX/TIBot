@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+//Muito bem, primeira mudanca! By: Rick
 
 
 //primeiro teste by: Su
