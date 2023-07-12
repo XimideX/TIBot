@@ -1,5 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+
+//primeiro teste by: Su
+
 #region Comentarios de comandos
 //if (condicao)  //eh sempre uma variavel comparada com a outra
 //as variaveis/valores precisam ser do msm tipo. uma do lado direito e outra do lado esquerdo. 
