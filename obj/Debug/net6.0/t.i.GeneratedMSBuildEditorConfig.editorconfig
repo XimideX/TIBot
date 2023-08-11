@@ -8,8 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = t.i
-<<<<<<< HEAD
 build_property.ProjectDir = c:\ProjetosSu\TI\TIBot\
-=======
-build_property.ProjectDir = c:\TIBot\TIBot\
->>>>>>> 469a2a8dcdb0c80b6fd8e19792c65560907f5f5a
