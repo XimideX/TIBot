@@ -237,56 +237,100 @@ while (true)
         Console.WriteLine ("Esse sistema possui Space Dock? /n 1: sim /n 2:nao")
         string possuiDock = Console.ReadLine ();
         //criar um WHILE para produzir ate esgotar os recursos ou atingir capacidade de producao de pecas
+
+        int possuiRecursos = recIniPlanetalNatal + recIniTradeGoods;
         
         if (possuiDock == "1")
         {
-            int possuiRecursos = recIniPlanetalNatal + recIniTradeGoods;
-
-            if (possuiRecursos >= 1)
+            if (possuiRecursos >= costCarrierI)
             {
-                Console.WriteLine ("O que deseja produzir? /n 1: Dreadnought I /n 2: Carrier I /n 3: Cruiser I /n 4: Destroyer I /n 5: Fighter I /n 6:Infantry /n 7: Mech");
-                // Random oQueProduzir = new Random();
-                // int prod = oQueProduzir.Next (1, 7 + 1); 
-        
-                if (oQueProduzir == 1)  
-                { 
-                    if ( ) //o que colocar aqui?
-                    {
-                        podeProduzir (opcCarrier, reinforcementCarrierI);
-                    } else
-                    {
-                        //semPecasParaMover (opcao1);
-                    }
-                    
-                // } else if (oQueProduzir == 2)
-                // {
-                //     if (isCarrierOk)
-                //     {
-                //         podeProduzir (opcCruiser, cruiser);
-                //     } else
-                //     {
-                //         semPecasParaMover (opcao2);
-                //     }
-                // } else if (opcaoPeca == 3) 
-                // {
-                //     if (isDestroyerOK)
-                //     {
-                //         podeProduzir (opcDestroyer, destroyers);
-                //     } else
-                //     {
-                //         semPecasParaMover (opcao3);
-                //     }
-                // } else if (opcaoPeca == 4) 
-                // {
-                //     if (isDreadnoughtOk)
-                //     {
-                //         podeProduzir (opcDreadnought, dreadnought);
-                //     } else
-                //     {
-                //         semPecasParaMover (opcao4);
-                //     }
-                 }
+                prodCarrierIOK = true;
             }
+
+            if (possuiRecursos >= costCruiserI)
+            {
+                prodCruiserIOK = true;
+            }
+
+            if (possuiRecursos >= costDestroyerI)
+            {  
+                prodDestroyerIOK = true;
+            }
+            
+            if (possuiRecursos >= costDreadnoughtI) 
+            {
+                prodDreadnoughtIOK = true;
+            }
+
+            if (possuiRecursos >= costFighterI2Uni) 
+            {
+                prodFighterI2UniOK = true;
+            }
+
+            if (possuiRecursos >= costHillColish) 
+            {
+                prodHillColishOK = true;
+            }
+
+            if (possuiRecursos >= costInfantryI2Uni) 
+            {
+                prodInfantry2UniOK = true;
+            }
+
+            if (possuiRecursos >= costMech) 
+            {
+                prodMechOK = true;
+            }
+
+            if (possuiRecursos >= costWarSun) 
+            {
+                prodWarSunOK = true;
+            }
+
+            
+            Console.WriteLine ("O que deseja produzir? /n 1: Dreadnought I /n 2: Carrier I /n 3: Cruiser I /n 4: Destroyer I /n 5: Fighter I /n 6:Infantry /n 7: Mech");
+            Random oQueProduzir = new Random();
+            int prod = oQueProduzir.Next (1, 7 + 1); //
+    
+            if (oQueProduzir == 1)  
+            { 
+                if (prodCarrierIOK)
+                {
+                    podeProduzir (opcCarrier, reinforcementCarrierI);
+                } else
+                {
+                    //semPecasParaMover (opcao1);
+                }
+                
+            // } else if (oQueProduzir == 2)
+            // {
+            //     if (isCarrierOk)
+            //     {
+            //         podeProduzir (opcCruiser, cruiser);
+            //     } else
+            //     {
+            //         semPecasParaMover (opcao2);
+            //     }
+            // } else if (opcaoPeca == 3) 
+            // {
+            //     if (isDestroyerOK)
+            //     {
+            //         podeProduzir (opcDestroyer, destroyers);
+            //     } else
+            //     {
+            //         semPecasParaMover (opcao3);
+            //     }
+            // } else if (opcaoPeca == 4) 
+            // {
+            //     if (isDreadnoughtOk)
+            //     {
+            //         podeProduzir (opcDreadnought, dreadnought);
+            //     } else
+            //     {
+            //         semPecasParaMover (opcao4);
+            //     }
+            }
+            
 
          
 
@@ -320,4 +364,3 @@ void podeProduzir (string pecaAProduzir, int qntidadeDePecasAProduzir)
     int qntidade = qntdadePecasProducao.Next(qntidadeDePecasAProduzir + 1);
     Console.WriteLine ("Quantidade de peças que sera produzida: " + qntidade);
 }
-
