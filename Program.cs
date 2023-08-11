@@ -290,6 +290,11 @@ while (true)
             
             Console.WriteLine ("O que deseja produzir? /n 1: Dreadnought I /n 2: Carrier I /n 3: Cruiser I /n 4: Destroyer I /n 5: Fighter I /n 6:Infantry /n 7: Mech");
             Random oQueProduzir = new Random();
+            //TODO 
+            //It can only produce the units that it has resource for.
+            // 1, 8 is not the answer, because it covers all the units avaiable.
+            //The max random number must be the number of the ship that matches the amount of the resources avaiable. If the bot has resource for all ships, then it'd be
+            //7. But it hasn't, so... you must specify what is the higher number that can be sorted on random method.
             int prod = oQueProduzir.Next (1, 7 + 1); //
     
             if (oQueProduzir == 1)  
