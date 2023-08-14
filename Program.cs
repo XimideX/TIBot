@@ -343,25 +343,11 @@ while (true)
                 {
                     OQueSeraProduzido (opcDreadnought);
                 }
-                
 
-
-                // if (prod == 2)
-                // {
-                //     x = qntdRecursos.Next (1, 5 + 1);
-                // }
-                //  if (prod == 1)
-                // {
-                //     x = qntdRecursos.Next (1, 3 + 1);
-                // }
-                // if (prod == 3)
-                // {
-                //     x = qntdRecursos.Next (1, 6 + 1);
-                // }
-                // if (prod == 4)
-                // {
-                //     x = qntdRecursos.Next (1, 7 + 1);
-                // }
+             //while para produzir enquanto houver recursos
+             //subtrair recursos utilizados 
+             //atribuir o valor atualizado a variável de recursos
+             //     
             
             }
         }
