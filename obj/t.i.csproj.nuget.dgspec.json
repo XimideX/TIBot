@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rschm\\OneDrive\\Documents\\t.i\\t.i.csproj": {}
+    "C:\\ProjetosSu\\TI\\TIBot\\t.i.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rschm\\OneDrive\\Documents\\t.i\\t.i.csproj": {
+    "C:\\ProjetosSu\\TI\\TIBot\\t.i.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rschm\\OneDrive\\Documents\\t.i\\t.i.csproj",
+        "projectUniqueName": "C:\\ProjetosSu\\TI\\TIBot\\t.i.csproj",
         "projectName": "t.i",
-        "projectPath": "C:\\Users\\rschm\\OneDrive\\Documents\\t.i\\t.i.csproj",
+        "projectPath": "C:\\ProjetosSu\\TI\\TIBot\\t.i.csproj",
         "packagesPath": "C:\\Users\\rschm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rschm\\OneDrive\\Documents\\t.i\\obj\\",
+        "outputPath": "C:\\ProjetosSu\\TI\\TIBot\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rschm\\AppData\\Roaming\\NuGet\\NuGet.Config"

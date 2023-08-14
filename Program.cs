@@ -122,205 +122,254 @@ while (true)
         Console.WriteLine (" \n Opcao 2 foi selecionada");
     }else if (leituraRespostaAcao == "3") 
     {
-        //não precisa do Console.writeLine pq isso precisa ser uma escolha do bot
-        
-        #region movimentos  
-        Console.WriteLine ("Opcao 1: um movimento \n Opcao 2: dois movimentos \n Opcao 3: tres movimentos");
-        string qntosmovimentos = Console.ReadLine();
-        Console.WriteLine (qntosmovimentos);
+        Console.WriteLine ("1: movimento /n 2: produção");
+        //colocar Random aqui
+        string opcTatica = Console.ReadLine();
 
-        if (qntosmovimentos == "1")    
+       #region movimentos 
+        if (opcTatica == "1")
         {
-            if (carrier >= 1)
+            Console.WriteLine ("Opcao 1: um movimento \n Opcao 2: dois movimentos \n Opcao 3: tres movimentos");
+            string qntosmovimentos = Console.ReadLine();
+            Console.WriteLine (qntosmovimentos);
+
+            if (qntosmovimentos == "1")    
             {
-                isCarrierOk = true;
-            }
-
-            if (destroyers >= 1)
-            {
-                isDestroyerOK = true;
-            }
-
-            if (cruiser >= 1)
-            {  
-                isCruiserOk = true;
-            }
-            
-            if (dreadnought >= 1) 
-            {
-                isDreadnoughtOk = true;
-            }
-
-            Random pecaSelecionada = new Random();
-            int opcaoPeca = pecaSelecionada.Next (1, 4 + 1);
-            string essaOpcao = string.Empty; 
-
-            if (opcaoPeca == 1)  
-            { 
-                if (isCarrierOk)
+                if (carrier >= 1)
                 {
-                    primeiroMetodo (opcCarrier, carrier);
-                } else
+                    isCarrierOk = true;
+                }
+
+                if (destroyers >= 1)
                 {
-                    semPecasParaMover (opcCarrier);
+                    isDestroyerOK = true;
+                }
+
+                if (cruiser >= 1)
+                {  
+                    isCruiserOk = true;
                 }
                 
-            } else if (opcaoPeca == 2)
-            {
-                if (isCruiserOk)
+                if (dreadnought >= 1) 
                 {
-                    primeiroMetodo (opcCruiser, cruiser);
-                } else
-                {
-                    semPecasParaMover (opcCruiser);
+                    isDreadnoughtOk = true;
                 }
-            } else if (opcaoPeca == 3) 
-            {
-                if (isDestroyerOK)
-                {
-                    primeiroMetodo (opcDestroyer, destroyers);
-                } else
-                {
-                    semPecasParaMover (opcDestroyer);
-                }
-            } else if (opcaoPeca == 4) 
-            {
-                if (isDreadnoughtOk)
-                {
-                    primeiroMetodo (opcDreadnought, dreadnought);
-                } else
-                {
-                    semPecasParaMover (opcDreadnought);
-                }
-            } 
-        }   
 
-        if (qntosmovimentos == "2")
-        { 
-            if (destroyers >= 1)
-            {
-                isDestroyerOK = true;
-            }
+                Random pecaSelecionada = new Random();
+                int opcaoPeca = pecaSelecionada.Next (1, 4 + 1);
+                string essaOpcao = string.Empty; 
 
-            if (cruiser >= 1)
-            {  
-                isCruiserOk = true;
-            }
-            
-            Random pecaSelecionada = new Random();
-            int opcaoPeca = pecaSelecionada.Next (1, 2 + 1);
-            string essaOpcao = string.Empty; 
+                if (opcaoPeca == 1)  
+                { 
+                    if (isCarrierOk)
+                    {
+                        PrimeiroMetodo (opcCarrier, carrier);
+                    } else
+                    {
+                        SemPecasPMover (opcCarrier);
+                    }
+                    
+                } else if (opcaoPeca == 2)
+                {
+                    if (isCruiserOk)
+                    {
+                        PrimeiroMetodo (opcCruiser, cruiser);
+                    } else
+                    {
+                        SemPecasPMover (opcCruiser);
+                    }
+                } else if (opcaoPeca == 3) 
+                {
+                    if (isDestroyerOK)
+                    {
+                        PrimeiroMetodo (opcDestroyer, destroyers);
+                    } else
+                    {
+                        SemPecasPMover (opcDestroyer);
+                    }
+                } else if (opcaoPeca == 4) 
+                {
+                    if (isDreadnoughtOk)
+                    {
+                        PrimeiroMetodo (opcDreadnought, dreadnought);
+                    } else
+                    {
+                        SemPecasPMover (opcDreadnought);
+                    }
+                } 
+            }   
 
-            if (opcaoPeca == 1)
-            {
-                if (isCruiserOk)
+            if (qntosmovimentos == "2")
+            { 
+                if (destroyers >= 1)
                 {
-                    primeiroMetodo (opcCruiser, cruiser);
-                } else
-                {
-                    semPecasParaMover (opcCruiser);
+                    isDestroyerOK = true;
                 }
-            } else if (opcaoPeca == 2) 
-            {
-                if (isDestroyerOK)
-                {
-                    primeiroMetodo (opcDestroyer, destroyers);
-                } else
-                {
-                    semPecasParaMover (opcDestroyer);
+
+                if (cruiser >= 1)
+                {  
+                    isCruiserOk = true;
                 }
-            }
-        }//else??
+                
+                Random pecaSelecionada = new Random();
+                int opcaoPeca = pecaSelecionada.Next (1, 2 + 1);
+                string essaOpcao = string.Empty; 
+
+                if (opcaoPeca == 1)
+                {
+                    if (isCruiserOk)
+                    {
+                        PrimeiroMetodo (opcCruiser, cruiser);
+                    } else
+                    {
+                        SemPecasPMover (opcCruiser);
+                    }
+                } else if (opcaoPeca == 2) 
+                {
+                    if (isDestroyerOK)
+                    {
+                        PrimeiroMetodo (opcDestroyer, destroyers);
+                    } else
+                    {
+                        SemPecasPMover (opcDestroyer);
+                    }
+                }
+            }//else??
+        }
         #endregion
 
         #region producao
-        Console.WriteLine ("Esse sistema possui Space Dock? /n 1: sim /n 2:nao")
-        string possuiDock = Console.ReadLine ();
-        //criar um WHILE para produzir ate esgotar os recursos ou atingir capacidade de producao de pecas
-
-        int possuiRecursos = recIniPlanetalNatal + recIniTradeGoods;
-        
-        if (possuiDock == "1")
+        if (opcTatica == "2")
         {
-            if (possuiRecursos >= costCarrierI)
-            {
-                prodCarrierIOK = true;
-            }
+            Console.WriteLine ("Esse sistema possui Space Dock? /n 1: sim /n 2:nao");
+            string possuiDock = Console.ReadLine ();
+            //criar um WHILE para produzir ate esgotar os recursos ou atingir capacidade de producao de pecas
 
-            if (possuiRecursos >= costCruiserI)
-            {
-                prodCruiserIOK = true;
-            }
-
-            if (possuiRecursos >= costDestroyerI)
-            {  
-                prodDestroyerIOK = true;
-            }
+            int possuiRecursos = recIniPlanetalNatal + recIniTradeGoods;
             
-            if (possuiRecursos >= costDreadnoughtI) 
+            if (possuiDock == "1")
             {
-                prodDreadnoughtIOK = true;
-            }
+                if (possuiRecursos >= costCarrierI)
+                {
+                    prodCarrierIOK = true;
+                }
 
-            if (possuiRecursos >= costHillColish) 
-            {
-                prodHillColishOK = true;
-            }
+                if (possuiRecursos >= costCruiserI)
+                {
+                    prodCruiserIOK = true;
+                }
 
-            if (possuiRecursos >= costWarSun) 
-            {
-                prodWarSunOK = true;
-            }
-                                
-            Console.WriteLine ("O que deseja produzir? /n 1: Destroyer I  /n 2: Fighter I  /n 3: Infantry  /n 4: Mech /n 5: Cruiser I /n 6: Carrier I /n 7: Dreadnought I /n 8: Hill Colish /n 9: War Sun");
-            Random oQueProduzir = new Random();
-            //TODO 
-            //It can only produce the units that it has resource for.
-            // 1, 8 is not the answer, because it covers all the units avaiable.
-            //The max random number must be the number of the ship that matches the amount of the resources avaiable. If the bot has resource for all ships, then it'd be
-            //7. But it hasn't, so... you must specify what is the higher number that can be sorted on random method.
-            int maxRandom; 
+                if (possuiRecursos >= costDestroyerI)
+                {  
+                    prodDestroyerIOK = true;
+                }
+                
+                if (possuiRecursos >= costDreadnoughtI) 
+                {
+                    prodDreadnoughtIOK = true;
+                }
 
-            if (prodDreadnoughtIOK)
-            {
-                maxRandom = costDreadnoughtI;
-            }else if (prodCarrierIOK)
-            {
-                maxRandom = costCarrierI;
-            }else if (prodCruiserIOK)
-            {
-                maxRandom = costCruiserI;
-            }else if (prodDestroyerIOK)
-            {
-                maxRandom = costDestroyerI;
-            }
+                if (possuiRecursos >= costHillColish) 
+                {
+                    prodHillColishOK = true;
+                }
+
+                if (possuiRecursos >= costWarSun) 
+                {
+                    prodWarSunOK = true;
+                }
+
+                //TODO 
+                //It can only produce the units that it has resource for.
+                // 1, 8 is not the answer, because it covers all the units avaiable.
+                //The max random number must be the number of the ship that matches the amount of the resources avaiable. If the bot has resource for all ships, then it'd be
+                //7. But it hasn't, so... you must specify what is the higher number that can be sorted on random method.                    
+               // Console.WriteLine ("O que deseja produzir? /n 1: Destroyer I  /n 2: Fighter I  /n 3: Infantry  /n 4: Mech /n 5: Cruiser I /n 6: Carrier I /n 7: Dreadnought I /n 8: Hill Colish /n 9: War Sun");
+                Random qntdRecursos = new Random();
+                int maxRandom = 0; 
+
+                if (prodDreadnoughtIOK)
+                {
+                    maxRandom = costDreadnoughtI;
+                }else if (prodCarrierIOK)
+                {
+                    maxRandom = costCarrierI;
+                }else if (prodCruiserIOK)
+                {
+                    maxRandom = costCruiserI;
+                }else if (prodDestroyerIOK)
+                {
+                    maxRandom = costDestroyerI;
+                }
+                
+                int prod = qntdRecursos.Next (1, maxRandom + 1);
+                int x = 0;
+
+                switch (prod)
+                {
+                    case 1:
+                        x = qntdRecursos.Next (1, 3 + 1);
+                        break;
+                    case 2:
+                        x = qntdRecursos.Next (1, 5 + 1);
+                        break;
+                    case 3:
+                        x = qntdRecursos.Next (1, 6 + 1);
+                        break;
+                    case 4:
+                        x = qntdRecursos.Next (1, 7 + 1);
+                        break;
+                }
+
+                if (x == 1)
+                {
+                    OQueSeraProduzido (opcDestroyer);
+                }else if (x == 2)
+                {
+                    OQueSeraProduzido (opcFighter);
+                }else if (x == 3)
+                {
+                    OQueSeraProduzido (opcInfantry);
+                }else if (x == 4)
+                {
+                    OQueSeraProduzido (opcMech);
+                }else if (x == 5)
+                {
+                    OQueSeraProduzido (opcCruiser);
+                }else if (x == 6)
+                {
+                    OQueSeraProduzido (opcCarrier);
+                }else if (x == 7)
+                {
+                    OQueSeraProduzido (opcDreadnought);
+                }
+                
+
+
+                // if (prod == 2)
+                // {
+                //     x = qntdRecursos.Next (1, 5 + 1);
+                // }
+                //  if (prod == 1)
+                // {
+                //     x = qntdRecursos.Next (1, 3 + 1);
+                // }
+                // if (prod == 3)
+                // {
+                //     x = qntdRecursos.Next (1, 6 + 1);
+                // }
+                // if (prod == 4)
+                // {
+                //     x = qntdRecursos.Next (1, 7 + 1);
+                // }
             
-            int prod = oQueProduzir.Next (1, maxRandom + 1);
-            int x;
-
-            if (prod == 2)
-            {
-                x = oQueProduzir.Next (1, 2 + 1) + 3;
             }
-             if (prod == 1)
-            {
-                x = oQueProduzir.Next (1, 3 + 1);
-            }
-            if (prod == 3)
-            {
-                x = 5;
-            }
-            if (prod == 4)
-            {
-                x = 7;
-            }
-            // criar While de esgotamento de recurso
-         }
+        }
         #endregion
     }     
 }
 
-void primeiroMetodo (string nomeDaNave, int qntidadeDePecas) //void = retorno vazio
+void PrimeiroMetodo (string nomeDaNave, int qntidadeDePecas) //void = retorno vazio
 {
     Console.WriteLine (nomeDaNave + " foi selecionado");
     Random qntdadePecasCarrier = new Random(); 
@@ -328,9 +377,14 @@ void primeiroMetodo (string nomeDaNave, int qntidadeDePecas) //void = retorno va
     Console.WriteLine ("Quantidade de peças que serao usadas " + z);
 }
 
-void semPecasParaMover (string nomeDaPeca)
+void SemPecasPMover (string nomeDaPeca)
 {
     Console.WriteLine (nomeDaPeca + " nao possui pecas suficientes para movimentar");
+}
+
+void OQueSeraProduzido (string pecaProduzida)
+{
+    Console.WriteLine ("Peca a ser produzida: "+ pecaProduzida);
 }
 
 // void podeProduzir (string pecaAProduzir, int qntidadeDePecasAProduzir)

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9JD3J2P8zAnlQw/9d87Hunt92qpmcBxky8NZ5DBpXt4uJ40eH5FA4INf+xJJxx+fGBcqy8oEdtLYlOJzpEEkoA==",
+  "dgSpecHash": "Jm0J7wxSmBsXUqLJHRrYS6pvhb3yPx9xcY8Po+KcvnERiHAq5LXdX7M6qBKl+6YLIrVW1V19kH3PTvV7Wn87Kw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rschm\\OneDrive\\Documents\\t.i\\t.i.csproj",
+  "projectFilePath": "C:\\ProjetosSu\\TI\\TIBot\\t.i.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rschm\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.16\\microsoft.netcore.app.ref.6.0.16.nupkg.sha512",
     "C:\\Users\\rschm\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.16\\microsoft.windowsdesktop.app.ref.6.0.16.nupkg.sha512",
