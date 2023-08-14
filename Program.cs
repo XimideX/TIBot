@@ -262,89 +262,60 @@ while (true)
                 prodDreadnoughtIOK = true;
             }
 
-            if (possuiRecursos >= costFighterI2Uni) 
-            {
-                prodFighterI2UniOK = true;
-            }
-
             if (possuiRecursos >= costHillColish) 
             {
                 prodHillColishOK = true;
-            }
-
-            if (possuiRecursos >= costInfantryI2Uni) 
-            {
-                prodInfantry2UniOK = true;
-            }
-
-            if (possuiRecursos >= costMech) 
-            {
-                prodMechOK = true;
             }
 
             if (possuiRecursos >= costWarSun) 
             {
                 prodWarSunOK = true;
             }
-
-            
-            Console.WriteLine ("O que deseja produzir? /n 1: Dreadnought I /n 2: Carrier I /n 3: Cruiser I /n 4: Destroyer I /n 5: Fighter I /n 6:Infantry /n 7: Mech");
+                                
+            Console.WriteLine ("O que deseja produzir? /n 1: Destroyer I  /n 2: Fighter I  /n 3: Infantry  /n 4: Mech /n 5: Cruiser I /n 6: Carrier I /n 7: Dreadnought I /n 8: Hill Colish /n 9: War Sun");
             Random oQueProduzir = new Random();
             //TODO 
             //It can only produce the units that it has resource for.
             // 1, 8 is not the answer, because it covers all the units avaiable.
             //The max random number must be the number of the ship that matches the amount of the resources avaiable. If the bot has resource for all ships, then it'd be
             //7. But it hasn't, so... you must specify what is the higher number that can be sorted on random method.
-            int prod = oQueProduzir.Next (1, 7 + 1); //
-    
-            if (oQueProduzir == 1)  
-            { 
-                if (prodCarrierIOK)
-                {
-                    podeProduzir (opcCarrier, reinforcementCarrierI);
-                } else
-                {
-                    //semPecasParaMover (opcao1);
-                }
-                
-            // } else if (oQueProduzir == 2)
-            // {
-            //     if (isCarrierOk)
-            //     {
-            //         podeProduzir (opcCruiser, cruiser);
-            //     } else
-            //     {
-            //         semPecasParaMover (opcao2);
-            //     }
-            // } else if (opcaoPeca == 3) 
-            // {
-            //     if (isDestroyerOK)
-            //     {
-            //         podeProduzir (opcDestroyer, destroyers);
-            //     } else
-            //     {
-            //         semPecasParaMover (opcao3);
-            //     }
-            // } else if (opcaoPeca == 4) 
-            // {
-            //     if (isDreadnoughtOk)
-            //     {
-            //         podeProduzir (opcDreadnought, dreadnought);
-            //     } else
-            //     {
-            //         semPecasParaMover (opcao4);
-            //     }
+            int maxRandom; 
+
+            if (prodDreadnoughtIOK)
+            {
+                maxRandom = costDreadnoughtI;
+            }else if (prodCarrierIOK)
+            {
+                maxRandom = costCarrierI;
+            }else if (prodCruiserIOK)
+            {
+                maxRandom = costCruiserI;
+            }else if (prodDestroyerIOK)
+            {
+                maxRandom = costDestroyerI;
             }
             
+            int prod = oQueProduzir.Next (1, maxRandom + 1);
+            int x;
 
-         
-
-
-            
-
-
-
-        }
+            if (prod == 2)
+            {
+                x = oQueProduzir.Next (1, 2 + 1) + 3;
+            }
+             if (prod == 1)
+            {
+                x = oQueProduzir.Next (1, 3 + 1);
+            }
+            if (prod == 3)
+            {
+                x = 5;
+            }
+            if (prod == 4)
+            {
+                x = 7;
+            }
+            // criar While de esgotamento de recurso
+         }
         #endregion
     }     
 }
@@ -362,10 +333,10 @@ void semPecasParaMover (string nomeDaPeca)
     Console.WriteLine (nomeDaPeca + " nao possui pecas suficientes para movimentar");
 }
 
-void podeProduzir (string pecaAProduzir, int qntidadeDePecasAProduzir)
-{
-    Console.WriteLine (pecaAProduzir + " será produzido");
-    Random qntdadePecasProducao = new Random(); 
-    int qntidade = qntdadePecasProducao.Next(qntidadeDePecasAProduzir + 1);
-    Console.WriteLine ("Quantidade de peças que sera produzida: " + qntidade);
-}
+// void podeProduzir (string pecaAProduzir, int qntidadeDePecasAProduzir)
+// {
+//     Console.WriteLine (pecaAProduzir + " será produzido");
+//     Random qntdadePecasProducao = new Random(); 
+//     int qntidade = qntdadePecasProducao.Next(qntidadeDePecasAProduzir + 1);
+//     Console.WriteLine ("Quantidade de peças que sera produzida: " + qntidade);
+// }
