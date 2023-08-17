@@ -246,15 +246,11 @@ while (true)
         {
             Console.WriteLine ("Esse sistema possui Space Dock? /n 1: sim /n 2:nao");
             string possuiDock = Console.ReadLine();
-            //criar um WHILE para produzir ate esgotar os recursos ou atingir capacidade de producao de pecas
-
-           // int possuiRecursos = recIniPlanetalNatal + recIniTradeGoods;
-            
 
             if (possuiDock == "1")
             {
-               // while (true) //como parar isso?
-              //  {
+                while (possuiRecursos >= 1)
+                {
                     if (possuiRecursos >= costCarrierI)
                     {
                         prodCarrierIOK = true;
@@ -268,6 +264,10 @@ while (true)
                     if (possuiRecursos >= costDestroyerI)
                     {  
                         prodDestroyerIOK = true;
+                    }
+                    if (possuiRecursos >= costFighterI2Uni)
+                    {
+                        prodFighterI2UniOK = true;
                     }
                     
                     if (possuiRecursos >= costDreadnoughtI) 
@@ -285,12 +285,6 @@ while (true)
                         prodWarSunOK = true;
                     }
 
-                    //TODO 
-                    //It can only produce the units that it has resource for.
-                    // 1, 8 is not the answer, because it covers all the units avaiable.
-                    //The max random number must be the number of the ship that matches the amount of the resources avaiable. If the bot has resource for all ships, then it'd be
-                    //7. But it hasn't, so... you must specify what is the higher number that can be sorted on random method.                    
-                 // Console.WriteLine ("O que deseja produzir? /n 1: Destroyer I  /n 2: Fighter I  /n 3: Infantry  /n 4: Mech /n 5: Cruiser I /n 6: Carrier I /n 7: Dreadnought I /n 8: Hill Colish /n 9: War Sun");
                     Random qntdRecursos = new Random();
                     int maxRandom = 0; 
 
@@ -309,7 +303,7 @@ while (true)
                     }
                     
                     int prod = qntdRecursos.Next (1, maxRandom + 1);
-                    x = 0;
+                    int x = 0;
 
                     switch (prod)
                     {
@@ -349,19 +343,13 @@ while (true)
                     {
                         OQueSeraProduzido (opcDreadnought);
                     }
-                    //subtrair recursos utilizados
-                    int recursoAtualizado = possuiRecursos - x;
-                    Console.WriteLine("Voce tem " + recursoAtualizado + "de recursos");
+                    possuiRecursos -= ; 
+                    // preciso indicar para p o bot o custo da peça selecionada para ele subtrair o recurso utilizado
+
+                    Console.WriteLine("Voce tem " + possuiRecursos + " de recursos");
+
                 }
-
-
-
-             //while para produzir enquanto houver recursos
-             
-             //atribuir o valor atualizado a variável de recursos
-             //     
-            
-            //}
+            }
         }
         #endregion
     }     
@@ -385,7 +373,7 @@ void OQueSeraProduzido (string pecaProduzida)
     Console.WriteLine ("Peca a ser produzida: "+ pecaProduzida);
 }
 
-void AtulizarRecurso (int recursoAtualizado)
-{
-    recursoAtualizado = possuiRecursos - x;
-}
+// void AtulizarRecurso (int recursoAtualizado)
+// {
+//     recursoAtualizado = possuiRecursos - x;
+// }
