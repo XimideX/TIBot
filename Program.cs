@@ -15,6 +15,7 @@
 // ctrl + k + c = comentar area selecionada - ctrl + k + u
 // Dotnet.run - comando inicial
 // ctrl + c = cancelar programa
+// cd + tab
 
 //{
     //corpo do if =  
@@ -99,9 +100,11 @@ int reinforcementSpaceDock = 0;
 #endregion
 
 #region producao/recursos
-int recursoProducao = 0;
-int recIniPlanetalNatal = 3;
-int recIniTradeGoods = 2; 
+//int recursoProducao = 0;
+int recursoInicialPlanetaNatal = 3;
+int recursoInicialTradeGoods = 2; 
+int possuiRecursos = recursoInicialPlanetaNatal + recursoInicialTradeGoods;
+
 #endregion
 
 
@@ -242,114 +245,123 @@ while (true)
         if (opcTatica == "2")
         {
             Console.WriteLine ("Esse sistema possui Space Dock? /n 1: sim /n 2:nao");
-            string possuiDock = Console.ReadLine ();
+            string possuiDock = Console.ReadLine();
             //criar um WHILE para produzir ate esgotar os recursos ou atingir capacidade de producao de pecas
 
-            int possuiRecursos = recIniPlanetalNatal + recIniTradeGoods;
+           // int possuiRecursos = recIniPlanetalNatal + recIniTradeGoods;
             
+
             if (possuiDock == "1")
             {
-                if (possuiRecursos >= costCarrierI)
-                {
-                    prodCarrierIOK = true;
+               // while (true) //como parar isso?
+              //  {
+                    if (possuiRecursos >= costCarrierI)
+                    {
+                        prodCarrierIOK = true;
+                    }
+
+                    if (possuiRecursos >= costCruiserI)
+                    {
+                        prodCruiserIOK = true;
+                    }
+
+                    if (possuiRecursos >= costDestroyerI)
+                    {  
+                        prodDestroyerIOK = true;
+                    }
+                    
+                    if (possuiRecursos >= costDreadnoughtI) 
+                    {
+                        prodDreadnoughtIOK = true;
+                    }
+
+                    if (possuiRecursos >= costHillColish) 
+                    {
+                        prodHillColishOK = true;
+                    }
+
+                    if (possuiRecursos >= costWarSun) 
+                    {
+                        prodWarSunOK = true;
+                    }
+
+                    //TODO 
+                    //It can only produce the units that it has resource for.
+                    // 1, 8 is not the answer, because it covers all the units avaiable.
+                    //The max random number must be the number of the ship that matches the amount of the resources avaiable. If the bot has resource for all ships, then it'd be
+                    //7. But it hasn't, so... you must specify what is the higher number that can be sorted on random method.                    
+                 // Console.WriteLine ("O que deseja produzir? /n 1: Destroyer I  /n 2: Fighter I  /n 3: Infantry  /n 4: Mech /n 5: Cruiser I /n 6: Carrier I /n 7: Dreadnought I /n 8: Hill Colish /n 9: War Sun");
+                    Random qntdRecursos = new Random();
+                    int maxRandom = 0; 
+
+                    if (prodDreadnoughtIOK)
+                    {
+                        maxRandom = costDreadnoughtI;
+                    }else if (prodCarrierIOK)
+                    {
+                        maxRandom = costCarrierI;
+                    }else if (prodCruiserIOK)
+                    {
+                        maxRandom = costCruiserI;
+                    }else if (prodDestroyerIOK)
+                    {
+                        maxRandom = costDestroyerI;
+                    }
+                    
+                    int prod = qntdRecursos.Next (1, maxRandom + 1);
+                    x = 0;
+
+                    switch (prod)
+                    {
+                        case 1:
+                            x = qntdRecursos.Next (1, 3 + 1);
+                            break;
+                        case 2:
+                            x = qntdRecursos.Next (1, 5 + 1);
+                            break;
+                        case 3:
+                            x = qntdRecursos.Next (1, 6 + 1);
+                            break;
+                        case 4:
+                            x = qntdRecursos.Next (1, 7 + 1);
+                            break;
+                    }
+
+                    if (x == 1)
+                    {
+                        OQueSeraProduzido (opcDestroyer);
+                    }else if (x == 2)
+                    {
+                        OQueSeraProduzido (opcFighter);
+                    }else if (x == 3)
+                    {
+                        OQueSeraProduzido (opcInfantry);
+                    }else if (x == 4)
+                    {
+                        OQueSeraProduzido (opcMech);
+                    }else if (x == 5)
+                    {
+                        OQueSeraProduzido (opcCruiser);
+                    }else if (x == 6)
+                    {
+                        OQueSeraProduzido (opcCarrier);
+                    }else if (x == 7)
+                    {
+                        OQueSeraProduzido (opcDreadnought);
+                    }
+                    //subtrair recursos utilizados
+                    int recursoAtualizado = possuiRecursos - x;
+                    Console.WriteLine("Voce tem " + recursoAtualizado + "de recursos");
                 }
 
-                if (possuiRecursos >= costCruiserI)
-                {
-                    prodCruiserIOK = true;
-                }
 
-                if (possuiRecursos >= costDestroyerI)
-                {  
-                    prodDestroyerIOK = true;
-                }
-                
-                if (possuiRecursos >= costDreadnoughtI) 
-                {
-                    prodDreadnoughtIOK = true;
-                }
-
-                if (possuiRecursos >= costHillColish) 
-                {
-                    prodHillColishOK = true;
-                }
-
-                if (possuiRecursos >= costWarSun) 
-                {
-                    prodWarSunOK = true;
-                }
-
-                //TODO 
-                //It can only produce the units that it has resource for.
-                // 1, 8 is not the answer, because it covers all the units avaiable.
-                //The max random number must be the number of the ship that matches the amount of the resources avaiable. If the bot has resource for all ships, then it'd be
-                //7. But it hasn't, so... you must specify what is the higher number that can be sorted on random method.                    
-               // Console.WriteLine ("O que deseja produzir? /n 1: Destroyer I  /n 2: Fighter I  /n 3: Infantry  /n 4: Mech /n 5: Cruiser I /n 6: Carrier I /n 7: Dreadnought I /n 8: Hill Colish /n 9: War Sun");
-                Random qntdRecursos = new Random();
-                int maxRandom = 0; 
-
-                if (prodDreadnoughtIOK)
-                {
-                    maxRandom = costDreadnoughtI;
-                }else if (prodCarrierIOK)
-                {
-                    maxRandom = costCarrierI;
-                }else if (prodCruiserIOK)
-                {
-                    maxRandom = costCruiserI;
-                }else if (prodDestroyerIOK)
-                {
-                    maxRandom = costDestroyerI;
-                }
-                
-                int prod = qntdRecursos.Next (1, maxRandom + 1);
-                int x = 0;
-
-                switch (prod)
-                {
-                    case 1:
-                        x = qntdRecursos.Next (1, 3 + 1);
-                        break;
-                    case 2:
-                        x = qntdRecursos.Next (1, 5 + 1);
-                        break;
-                    case 3:
-                        x = qntdRecursos.Next (1, 6 + 1);
-                        break;
-                    case 4:
-                        x = qntdRecursos.Next (1, 7 + 1);
-                        break;
-                }
-
-                if (x == 1)
-                {
-                    OQueSeraProduzido (opcDestroyer);
-                }else if (x == 2)
-                {
-                    OQueSeraProduzido (opcFighter);
-                }else if (x == 3)
-                {
-                    OQueSeraProduzido (opcInfantry);
-                }else if (x == 4)
-                {
-                    OQueSeraProduzido (opcMech);
-                }else if (x == 5)
-                {
-                    OQueSeraProduzido (opcCruiser);
-                }else if (x == 6)
-                {
-                    OQueSeraProduzido (opcCarrier);
-                }else if (x == 7)
-                {
-                    OQueSeraProduzido (opcDreadnought);
-                }
 
              //while para produzir enquanto houver recursos
-             //subtrair recursos utilizados 
+             
              //atribuir o valor atualizado a variável de recursos
              //     
             
-            }
+            //}
         }
         #endregion
     }     
@@ -373,10 +385,7 @@ void OQueSeraProduzido (string pecaProduzida)
     Console.WriteLine ("Peca a ser produzida: "+ pecaProduzida);
 }
 
-// void podeProduzir (string pecaAProduzir, int qntidadeDePecasAProduzir)
-// {
-//     Console.WriteLine (pecaAProduzir + " será produzido");
-//     Random qntdadePecasProducao = new Random(); 
-//     int qntidade = qntdadePecasProducao.Next(qntidadeDePecasAProduzir + 1);
-//     Console.WriteLine ("Quantidade de peças que sera produzida: " + qntidade);
-// }
+void AtulizarRecurso (int recursoAtualizado)
+{
+    recursoAtualizado = possuiRecursos - x;
+}
