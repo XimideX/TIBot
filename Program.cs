@@ -245,108 +245,305 @@ while (true)
         if (opcTatica == "2")
         {
             Console.WriteLine ("Esse sistema possui Space Dock? /n 1: sim /n 2:nao");
-            string possuiDock = Console.ReadLine();
+            string possuiDock = Console.ReadLine ();
 
             if (possuiDock == "1")
             {
                 while (possuiRecursos >= 1)
                 {
+                    #region checagem de recursos
                     if (possuiRecursos >= costCarrierI)
                     {
                         prodCarrierIOK = true;
+                        prodDreadnoughtIOK = false;
+                        prodHillColishOK = false;
+                        prodWarSunOK = false;
                     }
-
                     if (possuiRecursos >= costCruiserI)
                     {
                         prodCruiserIOK = true;
+                        prodCarrierIOK = false;
+                        prodDreadnoughtIOK = false;
+                        prodHillColishOK = false;
+                        prodWarSunOK = false;
                     }
-
                     if (possuiRecursos >= costDestroyerI)
                     {  
                         prodDestroyerIOK = true;
+                        prodCruiserIOK = false;
+                        prodCarrierIOK = false;
+                        prodDreadnoughtIOK = false;
+                        prodHillColishOK = false;
+                        prodWarSunOK = false;
+                    }
+                    if (possuiRecursos >= costInfantryI2Uni)
+                    {
+                        prodInfantry2UniOK = true;
+                        prodCruiserIOK = false;
+                        prodCarrierIOK = false;
+                        prodDreadnoughtIOK = false;
+                        prodHillColishOK = false;
+                        prodWarSunOK = false;
                     }
                     if (possuiRecursos >= costFighterI2Uni)
                     {
                         prodFighterI2UniOK = true;
+                        prodCruiserIOK = false;
+                        prodCarrierIOK = false;
+                        prodDreadnoughtIOK = false;
+                        prodHillColishOK = false;
+                        prodWarSunOK = false;
                     }
-                    
                     if (possuiRecursos >= costDreadnoughtI) 
                     {
                         prodDreadnoughtIOK = true;
                     }
-
                     if (possuiRecursos >= costHillColish) 
                     {
                         prodHillColishOK = true;
                     }
-
                     if (possuiRecursos >= costWarSun) 
                     {
                         prodWarSunOK = true;
                     }
+                    #endregion
 
                     Random qntdRecursos = new Random();
-                    int maxRandom = 0; 
+                    int maxRandomRecursos = 0; 
 
                     if (prodDreadnoughtIOK)
                     {
-                        maxRandom = costDreadnoughtI;
+                        maxRandomRecursos = costDreadnoughtI;
                     }else if (prodCarrierIOK)
                     {
-                        maxRandom = costCarrierI;
+                        maxRandomRecursos = costCarrierI;
                     }else if (prodCruiserIOK)
                     {
-                        maxRandom = costCruiserI;
+                        maxRandomRecursos = costCruiserI;
                     }else if (prodDestroyerIOK)
                     {
-                        maxRandom = costDestroyerI;
+                        maxRandomRecursos = costDestroyerI;
                     }
                     
-                    int prod = qntdRecursos.Next (1, maxRandom + 1);
-                    int x = 0;
+                    int prod = qntdRecursos.Next (1, maxRandomRecursos + 1);
+                    Console.WriteLine ("teste prod selecionado " + prod);
+                    int a = 0;
 
                     switch (prod)
                     {
                         case 1:
-                            x = qntdRecursos.Next (1, 3 + 1);
-                            break;
+                            a = qntdRecursos.Next (1, 3 + 1);
+                            if (a == 1)
+                            {
+                                prod = 1;
+                                OQueSeraProduzido (opcDestroyer);
+                            }else if (a == 2)
+                            {
+                                prod = 1;
+                                OQueSeraProduzido (opcFighter);
+                            }else if (a == 3)
+                            {
+                                prod = 1;
+                                OQueSeraProduzido (opcInfantry);
+                            }
+                        break;
                         case 2:
-                            x = qntdRecursos.Next (1, 5 + 1);
-                            break;
+                            a = qntdRecursos.Next (1, 5 + 1);
+                            if (a == 1)
+                            {
+                                prod = 1;
+                                OQueSeraProduzido (opcDestroyer);
+                            }else if (a == 2 )
+                            {
+                                prod = 1;
+                                OQueSeraProduzido (opcFighter);
+                            }else if (a == 3)
+                            {
+                                prod = 1;
+                                OQueSeraProduzido (opcInfantry);
+                            }else if (a == 4 )
+                            {
+                                prod = 2;
+                                OQueSeraProduzido (opcMech);
+                            }else if (a == 5)
+                            {
+                                prod = 2;
+                                OQueSeraProduzido (opcCruiser);
+                            }
+                        break;
                         case 3:
-                            x = qntdRecursos.Next (1, 6 + 1);
-                            break;
+                            a = qntdRecursos.Next (1, 6 + 1);
+                            if (a == 1)
+                            {
+                                prod = 1;
+                                OQueSeraProduzido (opcDestroyer);
+                            }else if (a == 2 )
+                            {
+                                prod = 1;
+                                OQueSeraProduzido (opcFighter);
+                            }else if (a == 3)
+                            {
+                                prod = 1;
+                                OQueSeraProduzido (opcInfantry);
+                            }else if (a == 4 )
+                            {
+                                prod = 2;
+                                OQueSeraProduzido (opcMech);
+                            }else if (a == 5)
+                            {
+                                prod = 2;
+                                OQueSeraProduzido (opcCruiser);
+                            }else if (a == 6)
+                            {
+                                prod = 3;
+                                OQueSeraProduzido (opcCarrier);
+                            }
+                        break;
                         case 4:
-                            x = qntdRecursos.Next (1, 7 + 1);
-                            break;
+                            a = qntdRecursos.Next (1, 7 + 1);
+                            if (a == 1)
+                            {
+                                prod = 1;
+                                OQueSeraProduzido (opcDestroyer);
+                            }else if (a == 2 )
+                            {
+                                prod = 1;
+                                OQueSeraProduzido (opcFighter);
+                            }else if (a == 3)
+                            {
+                                prod = 1;
+                                OQueSeraProduzido (opcInfantry);
+                            }else if (a == 4 )
+                            {
+                                prod = 2;
+                                OQueSeraProduzido (opcMech);
+                            }else if (a == 5)
+                            {
+                                prod = 2;
+                                OQueSeraProduzido (opcCruiser);
+                            }else if (a == 6)
+                            {
+                                prod = 3;
+                                OQueSeraProduzido (opcCarrier);
+                            }else if (a == 7)
+                            {
+                                prod = 4;
+                                OQueSeraProduzido (opcDreadnought);
+                            }
+                        break;
                     }
-
-                    if (x == 1)
-                    {
-                        OQueSeraProduzido (opcDestroyer);
-                    }else if (x == 2)
-                    {
-                        OQueSeraProduzido (opcFighter);
-                    }else if (x == 3)
-                    {
-                        OQueSeraProduzido (opcInfantry);
-                    }else if (x == 4)
-                    {
-                        OQueSeraProduzido (opcMech);
-                    }else if (x == 5)
-                    {
-                        OQueSeraProduzido (opcCruiser);
-                    }else if (x == 6)
-                    {
-                        OQueSeraProduzido (opcCarrier);
-                    }else if (x == 7)
-                    {
-                        OQueSeraProduzido (opcDreadnought);
-                    }
-                    possuiRecursos -= ; 
-                    // preciso indicar para p o bot o custo da peça selecionada para ele subtrair o recurso utilizado
-
-                    Console.WriteLine("Voce tem " + possuiRecursos + " de recursos");
+                    #region 
+                    // if (prod == 1)
+                    // {
+                    //     Random escolherPeca = new Random();
+                    //     a = escolherPeca.Next (1, 3 + 1);
+                    //     if (a == 1)
+                    //     {
+                    //         prod = 1;
+                    //         OQueSeraProduzido (opcDestroyer);
+                    //     }else if (a == 2)
+                    //     {
+                    //         prod = 1;
+                    //         OQueSeraProduzido (opcFighter);
+                    //     }else if (a == 3)
+                    //     {
+                    //         prod = 1;
+                    //         OQueSeraProduzido (opcInfantry);
+                    //     }
+                    // }else 
+                    // if (prod == 2)
+                    // {
+                    //     Random escolherPeca = new Random();
+                    //     a = escolherPeca.Next (1, 5 + 1);
+                    //     if (a == 1)
+                    //     {
+                    //         prod = 1;
+                    //         OQueSeraProduzido (opcDestroyer);
+                    //     }else if (a == 2 )
+                    //     {
+                    //         prod = 1;
+                    //         OQueSeraProduzido (opcFighter);
+                    //     }else if (a == 3)
+                    //     {
+                    //         prod = 1;
+                    //         OQueSeraProduzido (opcInfantry);
+                    //     }else if (a == 4 )
+                    //     {
+                    //         prod = 2;
+                    //         OQueSeraProduzido (opcMech);
+                    //     }else if (a == 5)
+                    //     {
+                    //         prod = 2;
+                    //         OQueSeraProduzido (opcCruiser);
+                    //     }
+                        
+                    // }else if (prod == 3)
+                    // {
+                    //     Random escolherPeca = new Random();
+                    //     a = escolherPeca.Next (1, 6 + 1);
+                    //     if (a == 1)
+                    //     {
+                    //         prod = 1;
+                    //         OQueSeraProduzido (opcDestroyer);
+                    //     }else if (a == 2 )
+                    //     {
+                    //         prod = 1;
+                    //         OQueSeraProduzido (opcFighter);
+                    //     }else if (a == 3)
+                    //     {
+                    //         prod = 1;
+                    //         OQueSeraProduzido (opcInfantry);
+                    //     }else if (a == 4 )
+                    //     {
+                    //         prod = 2;
+                    //         OQueSeraProduzido (opcMech);
+                    //     }else if (a == 5)
+                    //     {
+                    //         prod = 2;
+                    //         OQueSeraProduzido (opcCruiser);
+                    //     }else if (a == 6)
+                    //     {
+                    //         prod = 3;
+                    //         OQueSeraProduzido (opcCarrier);
+                    //     }
+                    // }else if (prod == 4)
+                    // {
+                    //     Random escolherPeca = new Random();
+                    //     a = escolherPeca.Next (1, 7 + 1);
+                    //     if (a == 1)
+                    //     {
+                    //         prod = 1;
+                    //         OQueSeraProduzido (opcDestroyer);
+                    //     }else if (a == 2 )
+                    //     {
+                    //         prod = 1;
+                    //         OQueSeraProduzido (opcFighter);
+                    //     }else if (a == 3)
+                    //     {
+                    //         prod = 1;
+                    //         OQueSeraProduzido (opcInfantry);
+                    //     }else if (a == 4 )
+                    //     {
+                    //         prod = 2;
+                    //         OQueSeraProduzido (opcMech);
+                    //     }else if (a == 5)
+                    //     {
+                    //         prod = 2;
+                    //         OQueSeraProduzido (opcCruiser);
+                    //     }else if (a == 6)
+                    //     {
+                    //         prod = 3;
+                    //         OQueSeraProduzido (opcCarrier);
+                    //     }else if (a == 7)
+                    //     {
+                    //         prod = 4;
+                    //         OQueSeraProduzido (opcDreadnought);
+                    //     }
+                    // } 
+                    #endregion  
+                    
+                    possuiRecursos = possuiRecursos - prod;
+                    Console.WriteLine ("Recurso atualizado " + possuiRecursos);
 
                 }
             }
@@ -368,12 +565,7 @@ void SemPecasPMover (string nomeDaPeca)
     Console.WriteLine (nomeDaPeca + " nao possui pecas suficientes para movimentar");
 }
 
-void OQueSeraProduzido (string pecaProduzida)
+void OQueSeraProduzido (int qntasUnidades, string pecaProduzida) //nao esta pronto
 {
-    Console.WriteLine ("Peca a ser produzida: "+ pecaProduzida);
+    Console.WriteLine ("Produção: " +qntasUnidades + " unidades de " + pecaProduzida);
 }
-
-// void AtulizarRecurso (int recursoAtualizado)
-// {
-//     recursoAtualizado = possuiRecursos - x;
-// }
