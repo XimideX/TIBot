@@ -17,8 +17,43 @@
 // ctrl + c = cancelar programa
 // cd + tab
 
+//if (condicao) 
 //{
-    //corpo do if =  
+    //corpo do if  
+//}
+
+
+//while (condicao) 
+//{
+    //corpo do while  
+//}
+
+
+//for (int i; i <= 10; i++) 
+//{
+    //corpo do for
+//}
+
+
+//int x = 2; -> atribuicao
+
+//switch (variavel para checagem (digamos que ela seja um int))
+//{
+//    case 1:
+//      {
+//          corpo do case
+//      } 
+//    break;
+//    case 2:
+//      {
+//          corpo do case
+//      } 
+//    break;
+//    case 3:
+//      {
+//          corpo do case
+//      } 
+//    break;
 //}
 #endregion
 
